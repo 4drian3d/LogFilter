@@ -9,8 +9,8 @@ public final class Configuration {
     private boolean useRegex;
 
     public Configuration(Toml toml){
-        this.strings = toml.getList("blocked-strings", List.<String>of());
         this.useRegex = toml.getBoolean("use-regex", false);
+        this.strings = toml.getList("blocked-strings", List.<String>of());
     }
 
     public List<String> getBlockedString(){

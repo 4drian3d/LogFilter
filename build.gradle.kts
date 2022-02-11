@@ -17,7 +17,7 @@ dependencies {
 group = "me.dreamerzero.logfilter"
 version = "1.0.0"
 description = "Filter log messages"
-val url = "aea"
+val url = "https://github.com/4drian3d/LogFilter"
 val id = "logfilter"
 
 java.sourceCompatibility = JavaVersion.VERSION_11

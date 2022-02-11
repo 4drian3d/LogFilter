@@ -15,7 +15,9 @@ import com.velocitypowered.api.plugin.annotation.DataDirectory;
 import org.slf4j.Logger;
 
 import me.dreamerzero.logfilter.config.Configuration;
-import me.dreamerzero.logfilter.logger.Filter;
+import me.dreamerzero.logfilter.logger.CustomFilter;
+import me.dreamerzero.logfilter.logger.PatternFilter;
+import me.dreamerzero.logfilter.logger.StringFilter;
 import me.dreamerzero.logfilter.utils.Constants;
 
 @Plugin(
@@ -42,7 +44,9 @@ public final class LogFilter {
     public void onProxyInitialization(ProxyInitializeEvent event){
         Toml toml = this.loadConfig();
         Configuration config = new Configuration(toml);
-        Filter filter = new Filter(config);
+        CustomFilter filter = config.useRegex()
+            ? new PatternFilter(config)
+            : new StringFilter(config);
         filter.registerFilter();
         logger.info("Loaded filter");
     }

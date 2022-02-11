@@ -1,7 +1,5 @@
 package me.dreamerzero.logfilter.logger;
 
-import java.util.regex.Pattern;
-
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Marker;
@@ -10,13 +8,8 @@ import org.apache.logging.log4j.core.Logger;
 import org.apache.logging.log4j.core.filter.AbstractFilter;
 import org.apache.logging.log4j.message.Message;
 
-import me.dreamerzero.logfilter.config.Configuration;
-
-public final class Filter extends AbstractFilter {
-    private final Configuration config;
-    public Filter(Configuration config){
-        this.config = config;
-    }
+public abstract class CustomFilter extends AbstractFilter {
+    protected CustomFilter(){}
 
     public void registerFilter(){
         ((Logger)LogManager.getRootLogger()).addFilter(this);
@@ -55,23 +48,5 @@ public final class Filter extends AbstractFilter {
         return Result.NEUTRAL;
     }
 
-    private Result logResult(String string){
-        if(string == null) return Result.NEUTRAL;
-        return config.useRegex() ? regexCheck(string) : containsCheck(string);
-    }
-
-    private Result regexCheck(String string){
-        for(String regex : config.getBlockedString()){
-            if(Pattern.compile(regex).matcher(string).find())
-                return Result.DENY;
-        }
-        return Result.NEUTRAL;
-    }
-
-    private Result containsCheck(String string){
-        for(String check : config.getBlockedString()){
-            if(string.contains(check)) return Result.DENY;
-        }
-        return Result.NEUTRAL;
-    }
+    protected abstract Result logResult(String string);
 }
