@@ -1,6 +1,6 @@
 plugins {
     java
-    id("net.kyori.blossom") version "1.3.0"
+    id("net.kyori.blossom") version "1.3.1"
 }
 
 repositories {
@@ -15,7 +15,7 @@ dependencies {
 }
 
 group = "me.dreamerzero.logfilter"
-version = "1.0.0"
+version = "1.0.1"
 description = "Filter log messages"
 val url = "https://github.com/4drian3d/LogFilter"
 val id = "logfilter"
@@ -23,12 +23,12 @@ val id = "logfilter"
 java.sourceCompatibility = JavaVersion.VERSION_11
 
 blossom{
-	val constants = "src/main/java/me/dreamerzero/logfilter/utils/Constants.java"
-	replaceToken("{name}", rootProject.name, constants)
-    replaceToken("{id}", id, constants)
-	replaceToken("{version}", version, constants)
-	replaceToken("{description}", description, constants)
-    replaceToken("{url}", url, constants)
+    replaceTokenIn("src/main/java/me/dreamerzero/logfilter/utils/Constants.java")
+    replaceToken("{name}", rootProject.name)
+    replaceToken("{id}", id)
+    replaceToken("{version}", version)
+    replaceToken("{description}", description)
+    replaceToken("{url}", url)
 }
 
 tasks.withType<JavaCompile>() {
