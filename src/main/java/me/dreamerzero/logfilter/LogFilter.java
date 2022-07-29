@@ -42,30 +42,34 @@ public final class LogFilter {
 
     @Subscribe
     public void onProxyInitialization(ProxyInitializeEvent event){
+        logger.info("Loading filter");
         Toml toml = this.loadConfig();
+        if (toml == null) {
+          return;
+        }
         Configuration config = new Configuration(toml);
         CustomFilter filter = config.useRegex()
             ? new PatternFilter(config)
             : new StringFilter(config);
         filter.registerFilter();
-        logger.info("Loaded filter");
+        logger.info("Correctly loaded {} filter", filter.getName());
     }
 
     private Toml loadConfig(){
-        if(!Files.exists(pluginPath)){
+        if (Files.notExists(pluginPath)) {
             try {
                 Files.createDirectory(pluginPath);
-            } catch (IOException e){
-                e.printStackTrace();
+            } catch (IOException e) {
+                logger.error("Unable to create plugin directory", e);
                 return null;
             }
         }
         Path configPath = pluginPath.resolve("config.toml");
-        if(!Files.exists(configPath)){
-            try(InputStream in = getClass().getClassLoader().getResourceAsStream("config.toml")) {
+        if (Files.notExists(configPath)) {
+            try (InputStream in = getClass().getClassLoader().getResourceAsStream("config.toml")) {
                 Files.copy(in, configPath);
-            } catch(IOException e){
-                e.printStackTrace();
+            } catch (IOException e) {
+                logger.error("Unable to create plugin configuration", e);
                 return null;
             }
         }

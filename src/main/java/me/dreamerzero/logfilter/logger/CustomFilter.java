@@ -24,8 +24,8 @@ public abstract class CustomFilter extends AbstractFilter {
     public Result filter(final Logger logger, final Level level, final Marker marker, final Message msg,
                         final Throwable t) {
         Result result = t != null ? logResult(t.getMessage()) : Result.NEUTRAL;
-        if(msg != null) {
-            if(result == Result.DENY) return result;
+        if (msg != null) {
+            if (result == Result.DENY) return result;
             return logResult(msg.getFormattedMessage());
         }
         return Result.NEUTRAL;
@@ -41,7 +41,7 @@ public abstract class CustomFilter extends AbstractFilter {
     public Result filter(final Logger logger, final Level level, final Marker marker, final Object msg,
                         final Throwable t) {
         Result result = t != null ? logResult(t.getMessage()) : Result.NEUTRAL;
-        if(msg != null) {
+        if (msg != null) {
             if(result == Result.DENY) return result;
             return logResult(msg.toString());
         }
@@ -49,4 +49,6 @@ public abstract class CustomFilter extends AbstractFilter {
     }
 
     protected abstract Result logResult(String string);
+
+    public abstract String getName();
 }

@@ -13,9 +13,14 @@ public class StringFilter extends CustomFilter {
 
     @Override
     protected Result logResult(String string){
-        for(String check : this.blockedStrings){
-            if(string.contains(check)) return Result.DENY;
+        for (final String check : this.blockedStrings){
+            if (string.contains(check)) return Result.DENY;
         }
         return Result.NEUTRAL;
+    }
+
+    @Override
+    public String getName() {
+      return "Regular";
     }
 }

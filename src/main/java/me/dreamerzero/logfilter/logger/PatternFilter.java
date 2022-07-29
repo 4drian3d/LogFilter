@@ -17,10 +17,15 @@ public class PatternFilter extends CustomFilter {
 
     @Override
     protected Result logResult(String string) {
-        for(Pattern pattern : patterns){
-            if(pattern.matcher(string).find())
+        for (final Pattern pattern : patterns){
+            if (pattern.matcher(string).find())
                 return Result.DENY;
         }
         return Result.NEUTRAL;
+    }
+
+    @Override
+    public String getName() {
+      return "Pattern";
     }
 }

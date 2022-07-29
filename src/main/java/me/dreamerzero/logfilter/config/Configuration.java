@@ -1,6 +1,7 @@
 package me.dreamerzero.logfilter.config;
 
 import java.util.List;
+import java.util.Collections;
 
 import com.moandjiezana.toml.Toml;
 
@@ -10,7 +11,7 @@ public final class Configuration {
 
     public Configuration(Toml toml){
         this.useRegex = toml.getBoolean("use-regex", false);
-        this.strings = toml.getList("blocked-strings", List.<String>of());
+        this.strings = toml.getList("blocked-strings", Collections.emptyList());
     }
 
     public List<String> getBlockedString(){
