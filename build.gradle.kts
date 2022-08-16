@@ -4,7 +4,6 @@ plugins {
 }
 
 repositories {
-    mavenLocal()
     maven("https://papermc.io/repo/repository/maven-public/")
 }
 
@@ -14,15 +13,12 @@ dependencies {
     annotationProcessor("com.velocitypowered:velocity-api:3.1.1")
 }
 
-group = "me.dreamerzero.logfilter"
-version = "1.0.1"
-description = "Filter log messages"
 val url = "https://github.com/4drian3d/LogFilter"
 val id = "logfilter"
 
-java.sourceCompatibility = JavaVersion.VERSION_11
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 
-blossom{
+blossom {
     replaceTokenIn("src/main/java/me/dreamerzero/logfilter/utils/Constants.java")
     replaceToken("{name}", rootProject.name)
     replaceToken("{id}", id)
@@ -31,6 +27,8 @@ blossom{
     replaceToken("{url}", url)
 }
 
+
 tasks.withType<JavaCompile>() {
     options.encoding = "UTF-8"
+    options.release.set(11)
 }
