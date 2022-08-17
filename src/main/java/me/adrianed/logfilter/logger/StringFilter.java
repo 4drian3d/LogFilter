@@ -1,6 +1,6 @@
-package me.dreamerzero.logfilter.logger;
+package me.adrianed.logfilter.logger;
 
-import me.dreamerzero.logfilter.configuration.Configuration;
+import me.adrianed.logfilter.configuration.Configuration;
 
 public final class StringFilter extends CustomFilter {
     private final String[] blockedStrings;

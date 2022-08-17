@@ -1,4 +1,4 @@
-package me.dreamerzero.logfilter.utils;
+package me.adrianed.logfilter.utils;
 
 public final class Constants {
     /**Plugin Version */

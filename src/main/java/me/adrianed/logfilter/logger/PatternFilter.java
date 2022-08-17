@@ -1,15 +1,16 @@
-package me.dreamerzero.logfilter.logger;
+package me.adrianed.logfilter.logger;
 
 import java.util.regex.Pattern;
 import java.util.stream.Collectors;
 
-import me.dreamerzero.logfilter.configuration.Configuration;
+import me.adrianed.logfilter.configuration.Configuration;
 
 public final class PatternFilter extends CustomFilter {
     private final Pattern[] patterns;
 
     public PatternFilter(Configuration config) {
-        this.patterns = config.getBlockedString().stream()
+        this.patterns = config.getBlockedString()
+            .stream()
             .map(Pattern::compile)
             // Collect to set, does not allow duplicated patterns
             .collect(Collectors.toSet())
@@ -18,7 +19,7 @@ public final class PatternFilter extends CustomFilter {
     }
 
     @Override
-    protected Result logResult(String string) {
+    protected Result logResult(final String string) {
         for (int i = 0; i < patterns.length; i++) {
             if (patterns[i].matcher(string).find()) {
                 return Result.DENY;

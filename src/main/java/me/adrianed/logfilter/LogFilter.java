@@ -1,4 +1,4 @@
-package me.dreamerzero.logfilter;
+package me.adrianed.logfilter;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -11,13 +11,14 @@ import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
 import com.velocitypowered.api.plugin.annotation.DataDirectory;
 
+import me.adrianed.logfilter.configuration.Configuration;
+import me.adrianed.logfilter.logger.CustomFilter;
+import me.adrianed.logfilter.logger.PatternFilter;
+import me.adrianed.logfilter.logger.StringFilter;
+import me.adrianed.logfilter.utils.Constants;
+
 import org.slf4j.Logger;
 
-import me.dreamerzero.logfilter.configuration.Configuration;
-import me.dreamerzero.logfilter.logger.CustomFilter;
-import me.dreamerzero.logfilter.logger.PatternFilter;
-import me.dreamerzero.logfilter.logger.StringFilter;
-import me.dreamerzero.logfilter.utils.Constants;
 import ninja.leaping.configurate.objectmapping.ObjectMappingException;
 
 @Plugin(

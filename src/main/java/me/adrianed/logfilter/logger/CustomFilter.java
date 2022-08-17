@@ -1,4 +1,4 @@
-package me.dreamerzero.logfilter.logger;
+package me.adrianed.logfilter.logger;
 
 import org.apache.logging.log4j.Level;
 import org.apache.logging.log4j.LogManager;

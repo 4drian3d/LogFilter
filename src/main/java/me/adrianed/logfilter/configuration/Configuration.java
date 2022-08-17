@@ -1,4 +1,4 @@
-package me.dreamerzero.logfilter.configuration;
+package me.adrianed.logfilter.configuration;
 
 import java.io.IOException;
 import java.nio.file.Path;
