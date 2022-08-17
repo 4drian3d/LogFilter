@@ -9,7 +9,7 @@ import org.apache.logging.log4j.core.filter.AbstractFilter;
 import org.apache.logging.log4j.message.Message;
 
 public abstract class CustomFilter extends AbstractFilter {
-    protected CustomFilter(){}
+    protected CustomFilter() {}
 
     public void registerFilter(){
         ((Logger)LogManager.getRootLogger()).addFilter(this);

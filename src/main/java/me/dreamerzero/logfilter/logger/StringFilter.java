@@ -1,20 +1,21 @@
 package me.dreamerzero.logfilter.logger;
 
-import java.util.List;
+import me.dreamerzero.logfilter.configuration.Configuration;
 
-import me.dreamerzero.logfilter.config.Configuration;
-
-public class StringFilter extends CustomFilter {
-    private final List<String> blockedStrings;
+public final class StringFilter extends CustomFilter {
+    private final String[] blockedStrings;
 
     public StringFilter(Configuration config) {
-        this.blockedStrings = config.getBlockedString();
+        this.blockedStrings = config.getBlockedString()
+            .toArray(new String[0]);
     }
 
     @Override
-    protected Result logResult(String string){
-        for (final String check : this.blockedStrings){
-            if (string.contains(check)) return Result.DENY;
+    protected Result logResult(final String string){
+        for (int i = 0; i < blockedStrings.length; i++) {
+            if (string.contains(blockedStrings[i])) {
+                return Result.DENY;
+            }
         }
         return Result.NEUTRAL;
     }
