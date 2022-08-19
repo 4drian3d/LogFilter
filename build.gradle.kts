@@ -1,36 +1,59 @@
 plugins {
     java
-    id("net.kyori.blossom") version "1.3.1"
+    id("com.github.johnrengelman.shadow") version "7.1.2"
 }
 
 repositories {
-    maven("https://papermc.io/repo/repository/maven-public/")
+    maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
-    compileOnly("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
-    compileOnly("org.apache.logging.log4j:log4j-core:2.17.1")
-    // Thanks gradle cache
-    compileOnly("org.spongepowered:configurate-hocon:3.7.3")
-    annotationProcessor("com.velocitypowered:velocity-api:3.1.2-SNAPSHOT")
+    shadow(project(":logfilter-common", "shadow"))
+    shadow(project(":logfilter-sponge"))
+    shadow(project(":logfilter-velocity"))
 }
 
-val url = "https://github.com/4drian3d/LogFilter"
-val id = "logfilter"
+allprojects {
+    apply<JavaPlugin>()
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+    repositories {
+        mavenCentral()
+    }
 
-blossom {
-    replaceTokenIn("src/main/java/me/adrianed/logfilter/utils/Constants.java")
-    replaceToken("{name}", rootProject.name)
-    replaceToken("{id}", id)
-    replaceToken("{version}", version)
-    replaceToken("{description}", description)
-    replaceToken("{url}", url)
+    dependencies {
+        compileOnly("org.apache.logging.log4j:log4j-core:2.18.0")
+    }
+
+    tasks.compileJava {
+        options.encoding = Charsets.UTF_8.name()
+
+        options.release.set(11)
+    }
+
+    java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 }
 
 
-tasks.withType<JavaCompile>() {
-    options.encoding = "UTF-8"
-    options.release.set(11)
+tasks {
+    shadowJar {
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        archiveFileName.set("LogFilter.jar")
+        configurations = listOf(project.configurations.shadow.get())
+
+        // Bypass Paper/Krypton java 17
+        arrayOf("paper", "krypton").forEach {
+            val buildTask = project(":logfilter-$it").tasks.named("jar")
+            dependsOn(buildTask)
+            
+            from(zipTree(buildTask.map {out -> out.outputs.files.singleFile}))
+        }
+
+        relocate("org.spongepowered", "me.adrianed.logfilter.libs.sponge")
+        relocate("io.leangen.geantyref", "me.adrianed.logfilter.libs.geantyref")
+        relocate("com.typesafe.config", "me.adrianed.logfilter.libs.config")
+    }
+
+    build {
+        dependsOn(shadowJar)
+    }
 }
