@@ -5,8 +5,8 @@ repositories {
 
 dependencies {
     compileOnly(project(":logfilter-common"))
-    compileOnly("org.kryptonmc:krypton-api:0.66.1")
-    annotationProcessor("org.kryptonmc:krypton-annotation-processor:0.66.1")
+    compileOnly("org.kryptonmc:krypton-api:0.66.2")
+    annotationProcessor("org.kryptonmc:krypton-annotation-processor:0.66.2")
 }
 
 tasks.compileJava {
