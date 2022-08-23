@@ -37,7 +37,7 @@ allprojects {
 tasks {
     shadowJar {
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
-        archiveFileName.set("LogFilter.jar")
+        archiveFileName.set("LogFilter-$version.jar")
         configurations = listOf(project.configurations.shadow.get())
 
         // Bypass Paper/Krypton java 17
