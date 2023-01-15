@@ -1,9 +1,25 @@
+plugins {
+    id("logfilter.shadow.java")
+    alias(libs.plugins.runvelocity)
+}
+
 repositories {
     maven("https://repo.papermc.io/repository/maven-public/")
 }
 
 dependencies {
-    compileOnly(project(":logfilter-common"))
-    compileOnly("com.velocitypowered:velocity-api:3.1.1")
-    annotationProcessor("com.velocitypowered:velocity-api:3.1.1")
+    compileOnly(libs.velocity)
+    annotationProcessor(libs.velocity)
 }
+
+tasks {
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+        options.release.set(11)
+    }
+    runVelocity {
+        velocityVersion(libs.versions.velocity.get())
+    }
+}
+
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
