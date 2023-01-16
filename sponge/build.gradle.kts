@@ -1,7 +1,8 @@
 import org.spongepowered.gradle.plugin.config.PluginLoaders
 
 plugins {
-    id("org.spongepowered.gradle.plugin") version "2.0.2"
+    alias(libs.plugins.shadow)
+    alias(libs.plugins.sponge.gradle)
 }
 
 repositories {
@@ -9,8 +10,8 @@ repositories {
 }
 
 dependencies {
-    compileOnly(project(":logfilter-common"))
-    compileOnly("org.spongepowered:spongeapi:8.1.0-SNAPSHOT")
+    shadow(project(":logfilter-common"))
+    compileOnly(libs.sponge)
 }
 
 sponge {
@@ -36,3 +37,20 @@ sponge {
         }
     }
 }
+
+tasks {
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+    }
+    build {
+        dependsOn("shadowJar")
+    }
+    shadowJar {
+        configurations = listOf(project.configurations.shadow.get())
+        duplicatesStrategy = DuplicatesStrategy.EXCLUDE
+        archiveFileName.set("LogFilter-Sponge-${project.version}.jar")
+    }
+}
+
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8

@@ -1,5 +1,7 @@
 plugins {
     id("net.minecrell.plugin-yml.bukkit") version "0.5.2"
+    id("logfilter.shadow.java")
+    alias(libs.plugins.runpaper)
 }
 
 repositories {
@@ -8,17 +10,22 @@ repositories {
 
 dependencies {
     compileOnly(project(":logfilter-common"))
-    compileOnly("io.papermc.paper:paper-api:1.19.2-R0.1-SNAPSHOT")
+    compileOnly(libs.legacypaper)
 }
 
-java {
-    toolchain.languageVersion.set(JavaLanguageVersion.of(17))
-}
 
-tasks.compileJava {
-    options.encoding = Charsets.UTF_8.name()
-
-    options.release.set(17)
+tasks{
+    compileJava {
+        options.encoding = Charsets.UTF_8.name()
+    }
+    jar {
+        manifest {
+            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.paper")
+        }
+    }
+    runServer {
+        minecraftVersion("1.19.3")
+    }
 }
 
 bukkit {
@@ -31,3 +38,6 @@ bukkit {
     
     author = "4drian3d"
 }
+
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+java.targetCompatibility = JavaVersion.VERSION_1_8
