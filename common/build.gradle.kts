@@ -15,10 +15,6 @@ blossom {
     replaceToken("{url}", url)
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     compileOnly(libs.configurate)
     compileOnly(libs.log4j2)

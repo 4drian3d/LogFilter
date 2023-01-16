@@ -9,7 +9,6 @@ repositories {
 }
 
 dependencies {
-    compileOnly(project(":logfilter-common"))
     compileOnly(libs.legacypaper)
 }
 

@@ -14,6 +14,7 @@ sponge = "8.1.0-SNAPSHOT"
 sponge-gradle = "2.0.2"
 waterfall = "1.19-R0.1-SNAPSHOT"
 plugin-yml = "0.5.2"
+krypton = "0.66.3"
 
 [libraries]
 
@@ -23,6 +24,8 @@ velocity = { module = "com.velocitypowered:velocity-api", version.ref = "velocit
 legacypaper = { group = "com.destroystokyo.paper", name = "paper-api", version.ref = "legacypaper" }
 sponge = { module = "org.spongepowered:spongeapi", version.ref = "sponge" }
 waterfall = { module = "io.github.waterfallmc:waterfall-api", version.ref = "waterfall" }
+krypton-api = { group = "org.kryptonmc", name = "krypton-api", version.ref = "krypton" }
+krypton-processor = { group = "org.kryptonmc", name = "krypton-annotation-processor", version.ref = "krypton" }
 
 #Gradle dependencies
 plugin-shadow = { group = "gradle.plugin.com.github.johnrengelman", name = "shadow", version.ref = "shadow" }

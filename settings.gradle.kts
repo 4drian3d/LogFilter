@@ -1,4 +1,3 @@
-enableFeaturePreview("VERSION_CATALOGS")
 rootProject.name = "logfilter-parent"
 
 arrayOf("common", "paper", "velocity", "sponge", "krypton", "waterfall").forEach {

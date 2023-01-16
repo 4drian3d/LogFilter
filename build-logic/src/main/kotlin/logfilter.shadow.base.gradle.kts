@@ -12,10 +12,6 @@ fun String.firstUppercase(): String {
     return char.toUpperCase() + st.substring(1)
 }
 
-repositories {
-    mavenCentral()
-}
-
 dependencies {
     shadow(project(":logfilter-common"))
     shadow("org.spongepowered:configurate-hocon:4.1.2")
