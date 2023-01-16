@@ -1,6 +1,7 @@
+enableFeaturePreview("VERSION_CATALOGS")
 rootProject.name = "logfilter-parent"
 
-arrayOf("common", "paper", "velocity", "sponge", "krypton").forEach {
+arrayOf("common", "paper", "velocity", "sponge", "krypton", "waterfall").forEach {
     include("logfilter-$it")
     project(":logfilter-$it").projectDir = file(it)
 }

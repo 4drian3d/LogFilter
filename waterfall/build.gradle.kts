@@ -1,7 +1,7 @@
 plugins {
-    id("net.minecrell.plugin-yml.bukkit") version "0.5.2"
+    alias(libs.plugins.pluginyml.bungee)
     id("logfilter.shadow.java")
-    alias(libs.plugins.runpaper)
+    alias(libs.plugins.runwaterfall)
 }
 
 repositories {
@@ -10,30 +10,28 @@ repositories {
 
 dependencies {
     compileOnly(project(":logfilter-common"))
-    compileOnly(libs.legacypaper)
+    compileOnly(libs.waterfall)
 }
 
-
-tasks {
+tasks{
     compileJava {
         options.encoding = Charsets.UTF_8.name()
     }
     jar {
         manifest {
-            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.paper")
+            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.bungee")
         }
     }
-    runServer {
-        minecraftVersion("1.19.3")
+    runWaterfall {
+        waterfallVersion("1.19")
     }
 }
 
-bukkit {
-    main = "me.adrianed.logfilter.paper.LogFilterPaper"
+bungee {
+    main = "me.adrianed.logfilter.bungee.LogFilterBungee"
     description = project.description as String
     name = "LogFilter"
     version = project.version as String
-    apiVersion = "1.13"
     author = "4drian3d"
 }
 

@@ -10,3 +10,6 @@ Filter messages sent to your Velocity, Sponge, Paper and Krypton consoles
 - Sponge 8+ Support
 - Paper 1.8.8+ Support
 - Krypton Support
+
+## Downloads
+Download it from [Modrinth](https://modrinth.com/plugin/logfilter)
