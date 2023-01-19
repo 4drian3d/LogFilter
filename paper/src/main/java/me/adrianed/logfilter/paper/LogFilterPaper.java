@@ -17,7 +17,7 @@ public class LogFilterPaper extends JavaPlugin {
     public void onEnable() {
         Path pluginPath = getDataFolder().toPath();
 
-        //legacy support, yay
+        // legacy support, yay
         Logger logger = LogManager.getLogger("LogFilter");
         logger.info("Loading filter");
 
