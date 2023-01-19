@@ -1,5 +1,5 @@
 plugins {
-    id("net.minecrell.plugin-yml.bukkit") version "0.5.2"
+    alias(libs.plugins.pluginyml.bukkit)
     id("logfilter.shadow.java")
     alias(libs.plugins.runpaper)
 }
@@ -11,7 +11,6 @@ repositories {
 dependencies {
     compileOnly(libs.legacypaper)
 }
-
 
 tasks {
     compileJava {

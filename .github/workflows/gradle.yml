@@ -28,4 +28,9 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         name: LogFilter
-        path: build/libs/*.jar
+        path: |-
+          paper/build/libs/*.jar
+          krypton/build/libs/*.jar
+          velocity/build/libs/*.jar
+          sponge/build/libs/*.jar
+          waterfall/build/libs/*.jar
