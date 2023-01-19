@@ -33,6 +33,7 @@ bukkit {
     version = project.version as String
     apiVersion = "1.13"
     author = "4drian3d"
+    load = net.minecrell.pluginyml.bukkit.BukkitPluginDescription.PluginLoadOrder.STARTUP
 }
 
 java.sourceCompatibility = JavaVersion.VERSION_1_8
