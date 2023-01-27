@@ -3,6 +3,7 @@ package me.adrianed.logfilter.velocity;
 import java.nio.file.Path;
 
 import com.google.inject.Inject;
+import com.velocitypowered.api.event.PostOrder;
 import com.velocitypowered.api.event.Subscribe;
 import com.velocitypowered.api.event.proxy.ProxyInitializeEvent;
 import com.velocitypowered.api.plugin.Plugin;
@@ -36,7 +37,7 @@ public final class LogFilterVelocity {
         this.logger = LogManager.getLogger("logfilter");
     }
 
-    @Subscribe
+    @Subscribe(order = PostOrder.FIRST)
     public void onProxyInitialization(ProxyInitializeEvent event){
         logger.info("Loading filter");
 
