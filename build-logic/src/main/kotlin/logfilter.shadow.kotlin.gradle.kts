@@ -1,5 +1,4 @@
 plugins {
-    //TODO
-    //kotlin("jvm")
+    kotlin("jvm")
     id("logfilter.shadow.base")
 }

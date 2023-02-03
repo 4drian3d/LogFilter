@@ -15,6 +15,7 @@ sponge-gradle = "2.0.2"
 waterfall = "1.19-R0.1-SNAPSHOT"
 plugin-yml = "0.5.2"
 krypton = "0.66.3"
+kotlin = "1.8.10"
 
 [libraries]
 
@@ -29,13 +30,14 @@ krypton-processor = { group = "org.kryptonmc", name = "krypton-annotation-proces
 
 #Gradle dependencies
 plugin-shadow = { group = "gradle.plugin.com.github.johnrengelman", name = "shadow", version.ref = "shadow" }
+plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [plugins]
 
 blossom = { id = "net.kyori.blossom", version.ref = "blossom" }
 extramodule = { id = "org.gradlex.extra-java-module-info", version.ref = "extramodule" }
 shadow = { id = "com.github.johnrengelman.shadow", version.ref = "shadow" }
-sponge-gradle = { id = "org.spongepowered.gradle.plugin", version.ref = "sponge-gradle"}
+sponge-gradle = { id = "org.spongepowered.gradle.plugin", version.ref = "sponge-gradle" }
 
 # Run Task
 runvelocity = { id = "xyz.jpenilla.run-velocity", version.ref = "runtask" }
@@ -45,3 +47,5 @@ runwaterfall = { id = "xyz.jpenilla.run-waterfall", version.ref = "runtask" }
 # Plugin-yml
 pluginyml-bungee = { id = "net.minecrell.plugin-yml.bungee", version.ref = "plugin-yml" }
 pluginyml-bukkit = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "plugin-yml" }
+
+kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }

@@ -1,5 +1,6 @@
 plugins {
-    id("logfilter.shadow.java")
+    id("logfilter.shadow.kotlin")
+    kotlin("kapt") version "1.8.10"
 }
 
 repositories {
@@ -9,7 +10,7 @@ repositories {
 
 dependencies {
     compileOnly(libs.krypton.api)
-    annotationProcessor(libs.krypton.processor)
+    kapt(libs.krypton.processor)
 }
 
 tasks.compileJava {
@@ -17,4 +18,8 @@ tasks.compileJava {
     options.release.set(17)
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+kotlin {
+    jvmToolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
