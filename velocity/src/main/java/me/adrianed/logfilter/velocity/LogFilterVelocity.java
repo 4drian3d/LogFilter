@@ -19,7 +19,7 @@ import org.apache.logging.log4j.Logger;
 
 @Plugin(
     id = Constants.ID,
-    name = Constants.NAME,
+    name = "LogFilter-Velocity",
     version = Constants.VERSION,
     description = Constants.DESCRIPTION,
     url = Constants.URL,
