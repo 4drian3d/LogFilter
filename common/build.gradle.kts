@@ -3,8 +3,8 @@ plugins {
     alias(libs.plugins.extramodule)
 }
 
-val url :String by project
-val id :String by project
+val url: String by project
+val id: String by project
 
 blossom {
     replaceTokenIn("src/main/java/me/adrianed/logfilter/common/Constants.java")
@@ -24,7 +24,7 @@ extraJavaModuleInfo {
     automaticModule("io.leangen.geantyref:geantyref", "io.leangen.geantyref")
 }
 
-tasks{
+tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
     }

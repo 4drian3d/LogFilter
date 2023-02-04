@@ -16,7 +16,7 @@ dependencies {
     add("compileOnly", "org.apache.logging.log4j:log4j-core:2.18.0")
 }
 
-tasks{
+tasks {
     withType<ShadowJar> {
         configurations = listOf(project.configurations.shadow.get())
         duplicatesStrategy = DuplicatesStrategy.EXCLUDE
