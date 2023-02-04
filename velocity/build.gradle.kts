@@ -1,5 +1,5 @@
 plugins {
-    id("logfilter.shadow.java")
+    id("logfilter.shadow.configurate")
     alias(libs.plugins.runvelocity)
 }
 
@@ -14,7 +14,6 @@ dependencies {
 
 tasks {
     compileJava {
-        options.encoding = Charsets.UTF_8.name()
         options.release.set(11)
     }
     runVelocity {

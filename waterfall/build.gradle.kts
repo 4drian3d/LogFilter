@@ -1,6 +1,6 @@
 plugins {
+    id("logfilter.shadow.configurate")
     alias(libs.plugins.pluginyml.bungee)
-    id("logfilter.shadow.java")
     alias(libs.plugins.runwaterfall)
 }
 

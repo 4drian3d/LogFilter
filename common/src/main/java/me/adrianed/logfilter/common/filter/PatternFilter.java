@@ -8,13 +8,14 @@ import me.adrianed.logfilter.common.configuration.Configuration;
 public final class PatternFilter extends CustomFilter {
     private final Pattern[] patterns;
 
+    @SuppressWarnings("all")
     public PatternFilter(Configuration config) {
         this.patterns = config.blockedStrings()
             .stream()
             .map(Pattern::compile)
             // Collect to set, does not allow duplicated patterns
             .collect(Collectors.toSet())
-            // Convert to an array, maximun performance
+            // Convert to an array, maximum performance
             .toArray(new Pattern[0]);
     }
 
