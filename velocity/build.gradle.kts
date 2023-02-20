@@ -1,6 +1,6 @@
 plugins {
     id("logfilter.shadow.configurate")
-    alias(libs.plugins.runvelocity)
+    id("xyz.jpenilla.run-velocity")
 }
 
 repositories {

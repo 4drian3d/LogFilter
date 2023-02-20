@@ -1,7 +1,6 @@
 plugins {
     id("logfilter.shadow.configurate")
-    alias(libs.plugins.pluginyml.bukkit)
-    alias(libs.plugins.runpaper)
+    id("xyz.jpenilla.run-paper")
 }
 
 repositories {
@@ -9,12 +8,13 @@ repositories {
 }
 
 dependencies {
-    compileOnly(libs.legacypaper)
+    compileOnly(libs.paper)
 }
 
 tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
+        options.release.set(17)
     }
     jar {
         manifest {
@@ -24,17 +24,11 @@ tasks {
     runServer {
         minecraftVersion("1.19.3")
     }
+    processResources {
+        filesMatching("paper-plugin.yml") {
+            expand("version" to project.version)
+        }
+    }
 }
 
-bukkit {
-    main = "me.adrianed.logfilter.paper.LogFilterPaper"
-    description = project.description as String
-    name = "LogFilter"
-    version = project.version as String
-    apiVersion = "1.13"
-    author = "4drian3d"
-    load = net.minecrell.pluginyml.bukkit.BukkitPluginDescription.PluginLoadOrder.STARTUP
-}
-
-java.sourceCompatibility = JavaVersion.VERSION_1_8
-java.targetCompatibility = JavaVersion.VERSION_1_8
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
