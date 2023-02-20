@@ -1,5 +1,5 @@
 plugins {
-    id("logfilter.shadow.configurate")
+    id("logfilter.shadow.java")
     id("xyz.jpenilla.run-paper")
 }
 
