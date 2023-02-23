@@ -11,9 +11,11 @@ fun String.firstUppercase(): String {
     return char.toUpperCase() + st.substring(1)
 }
 
+val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
+
 dependencies {
     shadow(project(":logfilter-common"))
-    add("compileOnly", "org.apache.logging.log4j:log4j-core:2.19.0")
+    add("compileOnly", libs.log4j2)
 }
 
 tasks {

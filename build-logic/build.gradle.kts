@@ -5,6 +5,7 @@ plugins {
 dependencies {
     implementation(libs.plugin.shadow)
     implementation(libs.plugin.kotlin)
+    compileOnly(files(libs::class.java.protectionDomain.codeSource.location))
 }
 
 repositories {
@@ -13,6 +14,6 @@ repositories {
 
 kotlin {
     jvmToolchain {
-        languageVersion.set(JavaLanguageVersion.of(8))
+        languageVersion.set(JavaLanguageVersion.of(17))
     }
 }

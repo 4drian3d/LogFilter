@@ -4,8 +4,10 @@ plugins {
     id("logfilter.shadow.java")
 }
 
+val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
+
 dependencies {
-    shadow("org.spongepowered:configurate-hocon:4.1.2")
+    shadow( libs.configurate)
 }
 
 tasks {
