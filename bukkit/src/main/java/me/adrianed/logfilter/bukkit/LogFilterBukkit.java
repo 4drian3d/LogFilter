@@ -1,7 +1,8 @@
-package me.adrianed.logfilter.paper;
+package me.adrianed.logfilter.bukkit;
 
 import java.nio.file.Path;
 
+import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 import me.adrianed.logfilter.common.configuration.Configuration;
@@ -11,17 +12,13 @@ import me.adrianed.logfilter.common.filter.Filters;
 import org.bukkit.plugin.java.JavaPlugin;
 
 @SuppressWarnings("unused")
-public class LogFilterPaper extends JavaPlugin {
-    private final Path pluginPath;
-
-    LogFilterPaper(Path path) {
-        this.pluginPath = path;
-    }
+public class LogFilterBukkit extends JavaPlugin {
     @Override
     public void onLoad() {
+        Path pluginPath = getDataFolder().toPath();
 
-        @SuppressWarnings("deprecation")
-        final Logger logger = getLog4JLogger();
+        // legacy support, yay
+        Logger logger = LogManager.getLogger("LogFilter");
         logger.info("Loading filter");
 
         if (!Loader.loadFiles(pluginPath, logger)) {
