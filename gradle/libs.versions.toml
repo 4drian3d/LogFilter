@@ -15,7 +15,7 @@ sponge = "8.1.0"
 sponge-gradle = "2.1.1"
 waterfall = "1.19-R0.1-SNAPSHOT"
 plugin-yml = "0.5.3"
-krypton = "0.66.3"
+krypton = "499879f4ef"
 kotlin = "1.8.21"
 
 [libraries]
