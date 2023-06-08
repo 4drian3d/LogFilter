@@ -8,7 +8,7 @@ fun String.firstUppercase(): String {
     val st = this.substring(10)
 
     val char = st[0]
-    return char.toUpperCase() + st.substring(1)
+    return char.uppercaseChar() + st.substring(1)
 }
 
 val libs = extensions.getByType(org.gradle.accessors.dm.LibrariesForLibs::class)
