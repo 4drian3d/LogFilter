@@ -1,6 +1,6 @@
 plugins {
     id("logfilter.shadow.kotlin")
-    kotlin("kapt") version "1.8.22"
+    kotlin("kapt") version "1.9.0"
 }
 
 repositories {
