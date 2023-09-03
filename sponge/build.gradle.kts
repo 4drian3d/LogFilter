@@ -5,16 +5,8 @@ plugins {
     alias(libs.plugins.sponge.gradle)
 }
 
-repositories {
-    maven("https://repo.spongepowered.org/repository/maven-public/")
-}
-
-dependencies {
-    compileOnly(libs.sponge)
-}
-
 sponge {
-    apiVersion("8.0.0")
+    apiVersion(libs.versions.sponge.api.get())
     loader {
         name(PluginLoaders.JAVA_PLAIN)
         version("1.0")
@@ -32,9 +24,9 @@ sponge {
             issues("https://github.com/4drian3d/LogFilter/issues")
         }
         contributor("4drian3d") {
-            description("Actual Developer")
+            description("Developer")
         }
     }
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(8))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))

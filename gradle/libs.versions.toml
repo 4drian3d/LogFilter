@@ -11,11 +11,10 @@ velocity = "3.2.0-SNAPSHOT"
 runtask = "2.1.0"
 legacypaper = "1.16.5-R0.1-SNAPSHOT"
 paper = "1.20-R0.1-SNAPSHOT"
-sponge = "8.2.0"
+sponge-api = "8.2.0"
 sponge-gradle = "2.1.1"
 waterfall = "1.19-R0.1-SNAPSHOT"
 plugin-yml = "0.6.0"
-krypton = "0.66.3"
 kotlin = "1.9.10"
 
 [libraries]
@@ -25,10 +24,7 @@ configurate = { group = "org.spongepowered", name = "configurate-hocon", version
 velocity = { module = "com.velocitypowered:velocity-api", version.ref = "velocity" }
 legacypaper = { group = "com.destroystokyo.paper", name = "paper-api", version.ref = "legacypaper" }
 paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
-sponge = { module = "org.spongepowered:spongeapi", version.ref = "sponge" }
 waterfall = { module = "io.github.waterfallmc:waterfall-api", version.ref = "waterfall" }
-krypton-api = { group = "org.kryptonmc", name = "krypton-api", version.ref = "krypton" }
-krypton-processor = { group = "org.kryptonmc", name = "krypton-annotation-processor", version.ref = "krypton" }
 
 #Gradle dependencies
 plugin-shadow = { group = "com.github.johnrengelman", name = "shadow", version.ref = "shadow" }
