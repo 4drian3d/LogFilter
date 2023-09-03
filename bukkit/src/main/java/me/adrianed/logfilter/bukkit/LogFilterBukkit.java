@@ -15,10 +15,10 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class LogFilterBukkit extends JavaPlugin {
     @Override
     public void onLoad() {
-        Path pluginPath = getDataFolder().toPath();
+        final Path pluginPath = getDataFolder().toPath();
 
         // legacy support, yay
-        Logger logger = LogManager.getLogger("LogFilter");
+        final Logger logger = LogManager.getLogger("LogFilter");
         logger.info("Loading filter");
 
         if (!Loader.loadFiles(pluginPath, logger)) {
@@ -33,5 +33,6 @@ public class LogFilterBukkit extends JavaPlugin {
         String filter = Filters.applyFilter(config);
 
         logger.info("Correctly loaded {} filter", filter);
+        logger.warn("This version of LogFilter is deprecated and will be removed in the future. Consider using Paper together with LogFilterPaper");
     }
 }
