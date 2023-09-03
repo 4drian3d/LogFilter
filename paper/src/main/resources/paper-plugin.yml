@@ -1,8 +1,8 @@
 name: LogFilter
 version: '${version}'
 author: 4drian3d
-main: me.adrianed.logfilter.paper.LogFilterPaper
-bootstrapper: me.adrianed.logfilter.paper.LogBootstrap
-loader: me.adrianed.logfilter.paper.LogLoader
-description: Filter messages sent to your Velocity, Sponge, Spigot, Paper, Bungeecord and Krypton consoles
+main: io.github._4drian3d.logfilter.paper.LogFilterPaper
+bootstrapper: io.github._4drian3d.logfilter.paper.LogBootstrap
+loader: io.github._4drian3d.logfilter.paper.LogLoader
+description: Filter messages sent to your Velocity, Sponge, Spigot, Paper and Bungeecord consoles
 api-version: '1.19'

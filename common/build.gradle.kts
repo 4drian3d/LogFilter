@@ -7,7 +7,7 @@ val url: String by project
 val id: String by project
 
 blossom {
-    replaceTokenIn("src/main/java/me/adrianed/logfilter/common/Constants.java")
+    replaceTokenIn("src/main/java/io/github/_4drian3d/logfilter/common/Constants.java")
     replaceToken("{name}", rootProject.name)
     replaceToken("{id}", id)
     replaceToken("{version}", version)
@@ -30,7 +30,7 @@ tasks {
     }
     jar {
         manifest {
-            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.common")
+            attributes("Automatic-Module-Name" to "io.github._4drian3d.logfilter.common")
         }
     }
 }

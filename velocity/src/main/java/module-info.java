@@ -1,5 +1,5 @@
 @SuppressWarnings({"requires-automatic", "requires-transitive-automatic"})
-module me.adrianed.logfilter.velocity {
+module io.github._4drian3d.logfilter.velocity {
     requires transitive com.velocitypowered.api;
-    requires transitive me.adrianed.logfilter.common;
+    requires transitive io.github._4drian3d.logfilter.common;
 }

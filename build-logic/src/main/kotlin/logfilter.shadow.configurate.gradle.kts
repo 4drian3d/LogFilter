@@ -12,8 +12,8 @@ dependencies {
 
 tasks {
     withType<ShadowJar> {
-        relocate("org.spongepowered", "me.adrianed.logfilter.libs.sponge")
-        relocate("io.leangen.geantyref", "me.adrianed.logfilter.libs.geantyref")
-        relocate("com.typesafe.config", "me.adrianed.logfilter.libs.config")
+        relocate("org.spongepowered", "io.github._4drian3d.logfilter.libs.sponge")
+        relocate("io.leangen.geantyref", "io.github._4drian3d.logfilter.libs.geantyref")
+        relocate("com.typesafe.config", "io.github._4drian3d.logfilter.libs.config")
     }
 }

@@ -17,7 +17,7 @@ sponge {
         version(project.version as String)
         license("GPL-3")
         description(project.description as String)
-        entrypoint("me.adrianed.logfilter.sponge.LogFilterSponge")
+        entrypoint("io.github._4drian3d.logfilter.sponge.LogFilterSponge")
         links {
             homepage("https://github.com/4drian3d/LogFilter")
             source("https://github.com/4drian3d/LogFilter")

@@ -18,11 +18,11 @@ tasks {
     }
     jar {
         manifest {
-            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.paper")
+            attributes("Automatic-Module-Name" to "io.github._4drian3d.logfilter.paper")
         }
     }
     runServer {
-        minecraftVersion("1.19.3")
+        minecraftVersion("1.20.1")
     }
     processResources {
         filesMatching("paper-plugin.yml") {

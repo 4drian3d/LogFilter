@@ -18,7 +18,7 @@ tasks{
     }
     jar {
         manifest {
-            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.bungee")
+            attributes("Automatic-Module-Name" to "io.github._4drian3d.logfilter.bungee")
         }
     }
     runWaterfall {
@@ -27,7 +27,7 @@ tasks{
 }
 
 bungee {
-    main = "me.adrianed.logfilter.bungee.LogFilterBungee"
+    main = "io.github._4drian3d.logfilter.bungee.LogFilterBungee"
     description = project.description as String
     name = "LogFilter"
     version = project.version as String

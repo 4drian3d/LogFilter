@@ -18,7 +18,7 @@ tasks {
     }
     jar {
         manifest {
-            attributes("Automatic-Module-Name" to "me.adrianed.logfilter.bukkit")
+            attributes("Automatic-Module-Name" to "io.github._4drian3d.logfilter.bukkit")
         }
     }
     runServer {
@@ -27,7 +27,7 @@ tasks {
 }
 
 bukkit {
-    main = "me.adrianed.logfilter.bukkit.LogFilterBukkit"
+    main = "io.github._4drian3d.logfilter.bukkit.LogFilterBukkit"
     description = project.description as String
     name = "LogFilter"
     version = project.version as String
