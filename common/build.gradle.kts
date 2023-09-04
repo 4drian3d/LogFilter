@@ -1,18 +1,8 @@
 plugins {
+    java
+    alias(libs.plugins.idea.ext)
     alias(libs.plugins.blossom)
     alias(libs.plugins.extramodule)
-}
-
-val url: String by project
-val id: String by project
-
-blossom {
-    replaceTokenIn("src/main/java/io/github/_4drian3d/logfilter/common/Constants.java")
-    replaceToken("{name}", rootProject.name)
-    replaceToken("{id}", id)
-    replaceToken("{version}", version)
-    replaceToken("{description}", description)
-    replaceToken("{url}", url)
 }
 
 dependencies {
@@ -38,3 +28,12 @@ tasks {
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 java.targetCompatibility = JavaVersion.VERSION_1_8
 
+sourceSets {
+    main {
+        blossom {
+            javaSources {
+                property("version", project.version.toString())
+            }
+        }
+    }
+}

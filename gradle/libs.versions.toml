@@ -5,7 +5,7 @@ metadata.format.version = "1.1"
 shadow = "8.1.1"
 log4j2 = "2.20.0"
 configurate = "4.1.2"
-blossom = "1.3.1"
+blossom = "2.0.1"
 extramodule = "1.4.2"
 velocity = "3.2.0-SNAPSHOT"
 runtask = "2.1.0"
@@ -47,3 +47,4 @@ pluginyml-bungee = { id = "net.minecrell.plugin-yml.bungee", version.ref = "plug
 pluginyml-bukkit = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "plugin-yml" }
 
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
+idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.1.7" }

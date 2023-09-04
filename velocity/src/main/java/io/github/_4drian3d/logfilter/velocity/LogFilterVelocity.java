@@ -18,11 +18,11 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 @Plugin(
-    id = Constants.ID,
+    id = "logfilter",
     name = "LogFilter-Velocity",
     version = Constants.VERSION,
-    description = Constants.DESCRIPTION,
-    url = Constants.URL,
+    description = "Filter messages sent to your Velocity, Sponge, and Paper consoles",
+    url = "https://github.com/4drian3d/LogFilter",
     authors = {
         "4drian3d"
     }
