@@ -10,23 +10,14 @@ dependencies {
     compileOnly(libs.log4j2)
 }
 
-extraJavaModuleInfo {
-    automaticModule("io.leangen.geantyref:geantyref", "io.leangen.geantyref")
-}
-
 tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
-    }
-    jar {
-        manifest {
-            attributes("Automatic-Module-Name" to "io.github._4drian3d.logfilter.common")
-        }
+        options.release.set(11)
     }
 }
 
-java.sourceCompatibility = JavaVersion.VERSION_1_8
-java.targetCompatibility = JavaVersion.VERSION_1_8
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
 
 sourceSets {
     main {

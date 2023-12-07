@@ -8,9 +8,9 @@ import io.github._4drian3d.logfilter.common.configuration.Configuration;
 public final class Filters {
     private Filters() {}
 
-    public static String applyFilter(Configuration configuration) {
-        Logger rootLogger = (Logger)LogManager.getRootLogger();
-        CustomFilter filter;
+    public static String applyFilter(final Configuration configuration) {
+        Logger rootLogger = (Logger) LogManager.getRootLogger();
+        final CustomFilter filter;
         if (configuration.regexMode()) {
             filter = new PatternFilter(configuration);
         } else {

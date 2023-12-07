@@ -22,7 +22,7 @@ tasks {
         }
     }
     runServer {
-        minecraftVersion("1.19.3")
+        minecraftVersion("1.20.2")
     }
 }
 
@@ -36,5 +36,4 @@ bukkit {
     load = net.minecrell.pluginyml.bukkit.BukkitPluginDescription.PluginLoadOrder.STARTUP
 }
 
-java.sourceCompatibility = JavaVersion.VERSION_1_8
-java.targetCompatibility = JavaVersion.VERSION_1_8
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))

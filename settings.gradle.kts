@@ -1,6 +1,6 @@
 rootProject.name = "logfilter-parent"
 
-arrayOf("common", "bukkit", "paper", "velocity", "sponge", "waterfall").forEach {
+arrayOf("common", "bukkit", "paper", "velocity", "sponge").forEach {
     include("logfilter-$it")
     project(":logfilter-$it").projectDir = file(it)
 }
