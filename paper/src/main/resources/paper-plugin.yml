@@ -6,3 +6,4 @@ bootstrapper: io.github._4drian3d.logfilter.paper.LogBootstrap
 loader: io.github._4drian3d.logfilter.paper.LogLoader
 description: Filter messages sent to your Velocity, Sponge, Spigot, Paper and Bungeecord consoles
 api-version: '1.19'
+folia-supported: true
