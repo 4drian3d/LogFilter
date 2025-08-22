@@ -47,4 +47,4 @@ pluginyml-bungee = { id = "net.minecrell.plugin-yml.bungee", version.ref = "plug
 pluginyml-bukkit = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "plugin-yml" }
 
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.1.7" }
+idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.3" }
