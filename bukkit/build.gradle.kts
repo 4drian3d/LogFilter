@@ -34,6 +34,7 @@ bukkit {
     apiVersion = "1.13"
     author = "4drian3d"
     load = net.minecrell.pluginyml.bukkit.BukkitPluginDescription.PluginLoadOrder.STARTUP
+    foliaSupported = true
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
