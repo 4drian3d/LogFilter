@@ -1,5 +1,5 @@
 plugins {
-    id("logfilter.shadow.configurate")
+    id("logfilter.shadow.java")
     id("xyz.jpenilla.run-velocity")
 }
 
@@ -10,11 +10,11 @@ dependencies {
 
 tasks {
     compileJava {
-        options.release.set(11)
+        options.release.set(17)
     }
     runVelocity {
         velocityVersion(libs.versions.velocity.get())
     }
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(11))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
