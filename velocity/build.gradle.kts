@@ -3,10 +3,6 @@ plugins {
     id("xyz.jpenilla.run-velocity")
 }
 
-repositories {
-    maven("https://repo.papermc.io/repository/maven-public/")
-}
-
 dependencies {
     compileOnly(libs.velocity)
     annotationProcessor(libs.velocity)

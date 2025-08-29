@@ -3,5 +3,7 @@ plugins {
 }
 
 subprojects {
-    repositories.mavenCentral()
+    repositories {
+        maven("https://repo.papermc.io/repository/maven-public/")
+    }
 }

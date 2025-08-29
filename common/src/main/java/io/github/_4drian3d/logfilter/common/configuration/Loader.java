@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import org.spongepowered.configurate.ConfigurateException;
 import org.spongepowered.configurate.ConfigurationNode;
@@ -33,7 +34,7 @@ public final class Loader {
         final Path configPath = dataFolder.resolve(CONFIG);
         if (Files.notExists(configPath)) {
             try (InputStream in = Configuration.class.getClassLoader().getResourceAsStream(CONFIG)) {
-                Files.copy(in, configPath);
+                Files.copy(Objects.requireNonNull(in), configPath);
             } catch (IOException e) {
                 logger.error("Unable to create plugin configuration", e);
                 return false;

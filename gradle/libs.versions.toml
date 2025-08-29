@@ -38,7 +38,6 @@ sponge-gradle = { id = "org.spongepowered.gradle.plugin", version.ref = "sponge-
 # Run Task
 runvelocity = { id = "xyz.jpenilla.run-velocity", version.ref = "runtask" }
 runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runtask" }
-runwaterfall = { id = "xyz.jpenilla.run-waterfall", version.ref = "runtask" }
 
 # Plugin-yml
 pluginyml-bukkit = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "plugin-yml" }
