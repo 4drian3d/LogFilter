@@ -15,10 +15,10 @@ public class LogLoader implements PluginLoader {
         final MavenLibraryResolver resolver = new MavenLibraryResolver();
 
         final RemoteRepository mavenCentral = new RemoteRepository
-                .Builder("central", "default", "https://repo1.maven.org/maven2/")
+                .Builder("central-mirror", "default", "https://repo.papermc.io/repository/maven-public/")
                 .build();
         final Dependency configurateHocon = new Dependency(
-                new DefaultArtifact("org.spongepowered:configurate-hocon:4.1.2"),
+                new DefaultArtifact("org.spongepowered:configurate-hocon:4.2.0"),
                 null
         );
 
