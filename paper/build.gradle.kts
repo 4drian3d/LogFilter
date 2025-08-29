@@ -14,7 +14,7 @@ dependencies {
 tasks {
     compileJava {
         options.encoding = Charsets.UTF_8.name()
-        options.release.set(17)
+        options.release.set(21)
     }
     jar {
         manifest {
@@ -22,7 +22,7 @@ tasks {
         }
     }
     runServer {
-        minecraftVersion("1.20.1")
+        minecraftVersion("1.21.8")
     }
     processResources {
         filesMatching("paper-plugin.yml") {
@@ -31,4 +31,4 @@ tasks {
     }
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))
