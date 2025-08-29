@@ -41,7 +41,6 @@ runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runtask" }
 runwaterfall = { id = "xyz.jpenilla.run-waterfall", version.ref = "runtask" }
 
 # Plugin-yml
-pluginyml-bungee = { id = "net.minecrell.plugin-yml.bungee", version.ref = "plugin-yml" }
 pluginyml-bukkit = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "plugin-yml" }
 
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
