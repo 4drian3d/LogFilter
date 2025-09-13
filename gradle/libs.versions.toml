@@ -13,7 +13,7 @@ paper = "1.20.1-R0.1-SNAPSHOT"
 sponge-api = "8.2.0"
 sponge-gradle = "2.3.0"
 plugin-yml = "0.6.0"
-kotlin = "2.2.10"
+kotlin = "2.2.20"
 
 [libraries]
 
