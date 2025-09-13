@@ -6,10 +6,9 @@ shadow = "9.0.2"
 log4j2 = "2.20.0"
 configurate = "4.2.0"
 blossom = "2.1.0"
-extramodule = "1.13"
+extramodule = "1.13.1"
 velocity = "3.2.0-SNAPSHOT"
 runtask = "2.3.1"
-legacypaper = "1.16.5-R0.1-SNAPSHOT"
 paper = "1.20.1-R0.1-SNAPSHOT"
 sponge-api = "8.2.0"
 sponge-gradle = "2.3.0"
@@ -21,7 +20,6 @@ kotlin = "2.2.10"
 log4j2 = { group = "org.apache.logging.log4j", name = "log4j-core", version.ref = "log4j2" }
 configurate = { group = "org.spongepowered", name = "configurate-hocon", version.ref = "configurate" }
 velocity = { module = "com.velocitypowered:velocity-api", version.ref = "velocity" }
-legacypaper = { group = "com.destroystokyo.paper", name = "paper-api", version.ref = "legacypaper" }
 paper = { group = "io.papermc.paper", name = "paper-api", version.ref = "paper" }
 
 #Gradle dependencies
