@@ -3,10 +3,9 @@ metadata.format.version = "1.1"
 [versions]
 
 shadow = "9.1.0"
-log4j2 = "2.20.0"
+log4j2 = "2.25.1"
 configurate = "4.2.0"
 blossom = "2.1.0"
-extramodule = "1.13.1"
 velocity = "3.2.0-SNAPSHOT"
 runtask = "2.3.1"
 paper = "1.20.1-R0.1-SNAPSHOT"
@@ -29,7 +28,6 @@ plugin-kotlin = { group = "org.jetbrains.kotlin", name = "kotlin-gradle-plugin",
 [plugins]
 
 blossom = { id = "net.kyori.blossom", version.ref = "blossom" }
-extramodule = { id = "org.gradlex.extra-java-module-info", version.ref = "extramodule" }
 shadow = { id = "com.gradleup.shadow", version.ref = "shadow" }
 sponge-gradle = { id = "org.spongepowered.gradle.plugin", version.ref = "sponge-gradle" }
 

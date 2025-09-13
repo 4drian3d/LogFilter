@@ -2,7 +2,6 @@ plugins {
     java
     alias(libs.plugins.idea.ext)
     alias(libs.plugins.blossom)
-    alias(libs.plugins.extramodule)
 }
 
 dependencies {
