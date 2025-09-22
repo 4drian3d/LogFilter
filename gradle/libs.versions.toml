@@ -3,7 +3,7 @@ metadata.format.version = "1.1"
 [versions]
 
 shadow = "9.1.0"
-log4j2 = "2.25.1"
+log4j2 = "2.25.2"
 configurate = "4.2.0"
 blossom = "2.1.0"
 velocity = "3.2.0-SNAPSHOT"
