@@ -28,4 +28,8 @@ tasks {
     named("build") {
         dependsOn("shadowJar")
     }
+
+    delete {
+        delete("run")
+    }
 }
