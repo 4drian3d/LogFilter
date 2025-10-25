@@ -1,9 +1,0 @@
-name: LogFilter
-version: '${version}'
-author: 4drian3d
-main: io.github._4drian3d.logfilter.paper.LogFilterPaper
-bootstrapper: io.github._4drian3d.logfilter.paper.LogBootstrap
-loader: io.github._4drian3d.logfilter.paper.LogLoader
-description: Filter messages sent to your Velocity, Sponge, and Paper consoles
-api-version: '1.21'
-folia-supported: true

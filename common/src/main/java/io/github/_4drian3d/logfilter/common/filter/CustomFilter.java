@@ -8,42 +8,46 @@ import org.apache.logging.log4j.core.filter.AbstractFilter;
 import org.apache.logging.log4j.message.Message;
 
 public abstract class CustomFilter extends AbstractFilter {
-    protected CustomFilter() {}
+  protected final int minimumLogLevelSupported;
 
-    @Override
-    public Result filter(final LogEvent event){
-        return event == null ? Result.NEUTRAL : logResult(event.getMessage().getFormattedMessage());
+  protected CustomFilter(final int minimumLogLevelSupported) {
+    this.minimumLogLevelSupported = minimumLogLevelSupported;
+  }
+
+  @Override
+  public Result filter(final LogEvent event) {
+    return event == null ? Result.NEUTRAL : logResult(event.getMessage().getFormattedMessage(), event.getLevel());
+  }
+
+  @Override
+  public Result filter(final Logger logger, final Level level, final Marker marker, final Message msg,
+                       final Throwable t) {
+    Result result = t != null ? logResult(t.getMessage(), level) : Result.NEUTRAL;
+    if (msg != null) {
+      if (result == Result.DENY) return result;
+      return logResult(msg.getFormattedMessage(), level);
     }
+    return Result.NEUTRAL;
+  }
 
-    @Override
-    public Result filter(final Logger logger, final Level level, final Marker marker, final Message msg,
-                        final Throwable t) {
-        Result result = t != null ? logResult(t.getMessage()) : Result.NEUTRAL;
-        if (msg != null) {
-            if (result == Result.DENY) return result;
-            return logResult(msg.getFormattedMessage());
-        }
-        return Result.NEUTRAL;
+  @Override
+  public Result filter(final Logger logger, final Level level, final Marker marker, final String msg,
+                       final Object... params) {
+    return logResult(msg, level);
+  }
+
+  @Override
+  public Result filter(final Logger logger, final Level level, final Marker marker, final Object msg,
+                       final Throwable t) {
+    Result result = t != null ? logResult(t.getMessage(), level) : Result.NEUTRAL;
+    if (msg != null) {
+      if (result == Result.DENY) return result;
+      return logResult(msg.toString(), level);
     }
+    return Result.NEUTRAL;
+  }
 
-    @Override
-    public Result filter(final Logger logger, final Level level, final Marker marker, final String msg,
-                        final Object... params) {
-        return logResult(msg);
-    }
+  protected abstract Result logResult(String string, Level level);
 
-    @Override
-    public Result filter(final Logger logger, final Level level, final Marker marker, final Object msg,
-                        final Throwable t) {
-        Result result = t != null ? logResult(t.getMessage()) : Result.NEUTRAL;
-        if (msg != null) {
-            if(result == Result.DENY) return result;
-            return logResult(msg.toString());
-        }
-        return Result.NEUTRAL;
-    }
-
-    protected abstract Result logResult(String string);
-
-    public abstract String getName();
+  public abstract String getName();
 }

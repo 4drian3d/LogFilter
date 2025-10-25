@@ -8,6 +8,7 @@ import java.util.Collections;
 import java.util.List;
 import java.util.Objects;
 
+import org.apache.logging.log4j.spi.StandardLevel;
 import org.spongepowered.configurate.ConfigurateException;
 import org.spongepowered.configurate.ConfigurationNode;
 import org.spongepowered.configurate.hocon.HoconConfigurationLoader;
@@ -18,66 +19,82 @@ import io.leangen.geantyref.TypeToken;
 import org.apache.logging.log4j.Logger;
 
 public final class Loader {
-    private Loader() {}
-    private static final String CONFIG = "config.conf";
+  private Loader() {
+  }
 
-    public static boolean loadFiles(Path dataFolder, Logger logger) {
-        if (Files.notExists(dataFolder)) {
-            try {
-                Files.createDirectory(dataFolder);
-            } catch (IOException e) {
-                logger.error("Unable to create plugin directory", e);
-                return false;
-            }
-        }
+  private static final String CONFIG = "config.conf";
 
-        final Path configPath = dataFolder.resolve(CONFIG);
-        if (Files.notExists(configPath)) {
-            try (InputStream in = Configuration.class.getClassLoader().getResourceAsStream(CONFIG)) {
-                Files.copy(Objects.requireNonNull(in), configPath);
-            } catch (IOException e) {
-                logger.error("Unable to create plugin configuration", e);
-                return false;
-            }
-        }
-        return true;
+  public static boolean loadFiles(Path dataFolder, Logger logger) {
+    if (Files.notExists(dataFolder)) {
+      try {
+        Files.createDirectory(dataFolder);
+      } catch (IOException e) {
+        logger.error("Unable to create plugin directory", e);
+        return false;
+      }
     }
 
-    public static Configuration loadConfig(Path dataFolder, Logger logger) {
-        HoconConfigurationLoader loader = HoconConfigurationLoader.builder()
-            .path(dataFolder.resolve(CONFIG))
-            .build();
+    final Path configPath = dataFolder.resolve(CONFIG);
+    if (Files.notExists(configPath)) {
+      try (InputStream in = Configuration.class.getClassLoader().getResourceAsStream(CONFIG)) {
+        Files.copy(Objects.requireNonNull(in), configPath);
+      } catch (IOException e) {
+        logger.error("Unable to create plugin configuration", e);
+        return false;
+      }
+    }
+    return true;
+  }
 
-        ConfigurationNode node;
-        try {
-            node = loader.load();
-        } catch (ConfigurateException e) {
-            logger.error("Unable to load configuration");
-            return null;
-        }
+  public static Configuration loadConfig(Path dataFolder, Logger logger) {
+    final HoconConfigurationLoader loader = HoconConfigurationLoader.builder()
+        .path(dataFolder.resolve(CONFIG))
+        .build();
 
-        boolean regex = node.node("use-regex").getBoolean(false);
-        List<String> blockedStrings;
-        try {
-            blockedStrings = node.node("blocked-strings")
-                .getList(TypeToken.get(String.class), Collections.emptyList());
-        } catch (SerializationException e) {
-            logger.error("Unable to get blocked-strings");
-            return null;
-        }
-
-        return new Configuration() {
-            @Override
-            public List<String> blockedStrings() {
-                return blockedStrings;
-            }
-
-            @Override
-            public boolean regexMode() {
-                return regex;
-            }
-        };
+    final ConfigurationNode node;
+    try {
+      node = loader.load();
+    } catch (ConfigurateException e) {
+      logger.error("Unable to load configuration");
+      return null;
     }
 
-    
+    final boolean regex = node.node("use-regex").getBoolean(false);
+    final List<String> blockedStrings;
+    try {
+      blockedStrings = node.node("blocked-strings")
+          .getList(TypeToken.get(String.class), Collections.emptyList());
+    } catch (SerializationException e) {
+      logger.error("Unable to get blocked-strings");
+      return null;
+    }
+    final StandardLevel minimumLogLevel;
+    try {
+      minimumLogLevel = node.node("minimum-log-level")
+          .get(StandardLevel.class, StandardLevel.INFO);
+    } catch (SerializationException e) {
+      logger.error("Unable to get serialize minimum log level");
+      return null;
+    }
+
+
+    return new Configuration() {
+      @Override
+      public List<String> blockedStrings() {
+        return blockedStrings;
+      }
+
+      @Override
+      public boolean regexMode() {
+        return regex;
+      }
+
+      @Override
+      public StandardLevel minimumLogLevel() {
+        return minimumLogLevel;
+      }
+    };
+  }
+
+
 }

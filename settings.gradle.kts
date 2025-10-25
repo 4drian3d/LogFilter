@@ -1,8 +1,15 @@
+@file:Suppress("UnstableApiUsage")
 rootProject.name = "logfilter-parent"
 
 arrayOf("common", "paper", "velocity", "sponge").forEach {
     include("logfilter-$it")
     project(":logfilter-$it").projectDir = file(it)
+}
+
+dependencyResolutionManagement {
+    repositories {
+        maven("https://repo.papermc.io/repository/maven-public/")
+    }
 }
 
 pluginManagement {

@@ -1,6 +1,7 @@
 plugins {
     id("logfilter.shadow.java")
     id("xyz.jpenilla.run-paper")
+    alias(libs.plugins.pluginyml.paper)
 }
 
 dependencies {
@@ -20,11 +21,17 @@ tasks {
     runServer {
         minecraftVersion("1.21.8")
     }
-    processResources {
-        filesMatching("paper-plugin.yml") {
-            expand("version" to project.version)
-        }
-    }
+}
+
+paper {
+    name = "LogFilter"
+    author = "4drian3d"
+    main = "io.github._4drian3d.logfilter.paper.LogFilterPaper"
+    bootstrapper = "io.github._4drian3d.logfilter.paper.LogBootstrap"
+    loader = "io.github._4drian3d.logfilter.paper.LogLoader"
+    hasOpenClassloader = false
+    foliaSupported = true
+    apiVersion = "1.21"
 }
 
 java.toolchain.languageVersion.set(JavaLanguageVersion.of(21))

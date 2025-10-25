@@ -10,5 +10,8 @@ tasks {
     build {
         dependsOn(shadowJar)
     }
+    shadowJar {
+        destinationDirectory.set(file("${project.rootDir}/jar"))
+    }
 }
 

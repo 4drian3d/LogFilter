@@ -36,7 +36,7 @@ runvelocity = { id = "xyz.jpenilla.run-velocity", version.ref = "runtask" }
 runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runtask" }
 
 # Plugin-yml
-pluginyml-bukkit = { id = "net.minecrell.plugin-yml.bukkit", version.ref = "plugin-yml" }
+pluginyml-paper = { id = "net.minecrell.plugin-yml.paper", version.ref = "plugin-yml" }
 
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
 idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.3" }
