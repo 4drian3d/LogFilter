@@ -2,7 +2,7 @@ metadata.format.version = "1.1"
 
 [versions]
 
-shadow = "9.2.2"
+shadow = "9.3.0"
 log4j2 = "2.25.2"
 configurate = "4.2.0"
 blossom = "2.2.0"
