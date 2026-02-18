@@ -39,4 +39,4 @@ runpaper = { id = "xyz.jpenilla.run-paper", version.ref = "runtask" }
 pluginyml-paper = { id = "net.minecrell.plugin-yml.paper", version.ref = "plugin-yml" }
 
 kotlin = { id = "org.jetbrains.kotlin.jvm", version.ref = "kotlin" }
-idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.4" }
+idea-ext = { id = "org.jetbrains.gradle.plugin.idea-ext", version = "1.4.1" }
