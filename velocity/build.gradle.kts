@@ -10,11 +10,11 @@ dependencies {
 
 tasks {
     compileJava {
-        options.release.set(17)
+        options.release.set(25)
     }
     runVelocity {
         velocityVersion(libs.versions.velocity.get())
     }
 }
 
-java.toolchain.languageVersion.set(JavaLanguageVersion.of(17))
+java.toolchain.languageVersion.set(JavaLanguageVersion.of(25))
