@@ -10,7 +10,7 @@ velocity = "4.3.0"
 runtask = "3.1.0"
 paper = "1.20.1-R0.1-SNAPSHOT"
 sponge-api = "8.2.0"
-sponge-gradle = "2.3.0"
+sponge-gradle = "2.5.1"
 plugin-yml = "0.6.0"
 kotlin = "2.4.21"
 
